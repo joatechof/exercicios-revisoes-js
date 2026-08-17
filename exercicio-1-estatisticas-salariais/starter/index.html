@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 1 — Estatísticas salariais</title>
+  <style>
+    body { max-width: 760px; margin: 0 auto; padding: 2rem; font: 1rem/1.5 system-ui, sans-serif; color: #172033; }
+    form { display: grid; gap: .75rem; }
+    input, button { padding: .75rem; font: inherit; }
+    button { width: fit-content; cursor: pointer; }
+    output { display: block; margin-top: 1rem; padding: 1rem; white-space: pre-line; background: #eef3ff; border-radius: .5rem; }
+    .error { color: #8a1020; background: #fff0f2; }
+  </style>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Estatísticas salariais</h1>
+    <p>Escreve exactamente cinco salários, separados por vírgulas.</p>
+
+    <form id="salaryForm" novalidate>
+      <label for="salaryInput">Salários</label>
+      <input id="salaryInput" value="900, 1000, 1200, 1500, 1800" autocomplete="off">
+      <button type="submit">Calcular</button>
+    </form>
+
+    <output id="result" aria-live="polite">Ainda não foi efectuado nenhum cálculo.</output>
+  </main>
+</body>
+</html>

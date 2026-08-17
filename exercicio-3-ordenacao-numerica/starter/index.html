@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 3 — Ordenação numérica segura</title>
+  <style>
+    body { max-width: 760px; margin: 0 auto; padding: 2rem; font: 1rem/1.5 system-ui, sans-serif; color: #172033; }
+    form { display: grid; gap: .75rem; }
+    input, select, button { padding: .75rem; font: inherit; }
+    button { width: fit-content; cursor: pointer; }
+    output { display: block; margin-top: 1rem; padding: 1rem; white-space: pre-line; background: #eef3ff; border-radius: .5rem; }
+    .error { color: #8a1020; background: #fff0f2; }
+  </style>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Ordenação numérica segura</h1>
+    <p>Ordena números sem alterar o array original.</p>
+
+    <form id="sortForm" novalidate>
+      <label for="numbersInput">Números separados por vírgulas</label>
+      <input id="numbersInput" value="400, 60, 35" autocomplete="off">
+
+      <label for="directionSelect">Direcção</label>
+      <select id="directionSelect">
+        <option value="asc">Crescente</option>
+        <option value="desc">Decrescente</option>
+      </select>
+
+      <button type="submit">Ordenar</button>
+    </form>
+
+    <output id="result" aria-live="polite">Ainda não foi efectuada nenhuma ordenação.</output>
+  </main>
+</body>
+</html>

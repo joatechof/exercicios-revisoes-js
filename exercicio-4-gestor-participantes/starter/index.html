@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 4 — Gestor de participantes</title>
+  <style>
+    body { max-width: 760px; margin: 0 auto; padding: 2rem; font: 1rem/1.5 system-ui, sans-serif; color: #172033; }
+    .forms { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    form { display: grid; gap: .75rem; padding: 1rem; background: #f4f6fa; border-radius: .5rem; }
+    input, button { padding: .75rem; font: inherit; }
+    button { width: fit-content; cursor: pointer; }
+    #message { padding: .75rem; background: #eef3ff; border-radius: .5rem; }
+    .error { color: #8a1020; background: #fff0f2 !important; }
+    .success { color: #155c32; background: #effaf3 !important; }
+  </style>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Gestor de participantes</h1>
+    <p>Adiciona e remove nomes, mantendo o array como fonte de verdade.</p>
+
+    <div class="forms">
+      <form id="addForm" novalidate>
+        <label for="addName">Nome a adicionar</label>
+        <input id="addName" autocomplete="off" placeholder="Ex.: Ana">
+        <button type="submit">Adicionar</button>
+      </form>
+
+      <form id="removeForm" novalidate>
+        <label for="removeName">Nome a remover</label>
+        <input id="removeName" autocomplete="off" placeholder="Ex.: Rui">
+        <button type="submit">Remover</button>
+      </form>
+    </div>
+
+    <p id="message" aria-live="polite">A lista começa com Marta e Rui.</p>
+    <h2>Participantes</h2>
+    <ul id="participantsList"></ul>
+  </main>
+</body>
+</html>

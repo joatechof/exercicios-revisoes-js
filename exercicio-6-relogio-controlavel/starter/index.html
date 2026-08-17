@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 6 — Relógio controlável</title>
+  <style>
+    body { max-width: 760px; margin: 0 auto; padding: 2rem; text-align: center; font: 1rem/1.5 system-ui, sans-serif; color: #172033; }
+    #clockOutput { display: block; margin: 2rem 0; font: 700 clamp(2.5rem, 10vw, 5rem)/1 ui-monospace, monospace; }
+    .actions { display: flex; justify-content: center; gap: 1rem; }
+    button { padding: .75rem 1.25rem; font: inherit; cursor: pointer; }
+    #status { margin-top: 1.5rem; padding: .75rem; background: #eef3ff; border-radius: .5rem; }
+  </style>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Relógio controlável</h1>
+    <p>O relógio deve iniciar imediatamente, impedir intervalos duplicados e poder parar.</p>
+    <output id="clockOutput" aria-live="polite">00:00:00</output>
+
+    <div class="actions">
+      <button id="startButton" type="button">Iniciar</button>
+      <button id="stopButton" type="button">Parar</button>
+    </div>
+
+    <p id="status" aria-live="polite">Relógio parado.</p>
+  </main>
+</body>
+</html>
