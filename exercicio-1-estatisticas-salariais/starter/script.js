@@ -31,10 +31,30 @@ function parseSalaries(rawValue) {
 }
 
 function calculateStatistics(salaries) {
+  // salaries = [900, 1000, 1200, 1500, 1800]
+
   // TODO 1: criar um acumulador para o total.
   // TODO 2: contar os salários estritamente superiores a 1000.
   // TODO 3: devolver { total, average, above1000 }.
-  return null;
+
+  let total = 0;
+  let above1000 = 0;
+
+  for (let i = 0; i < salaries.length; i++) {
+    // total = total + salaries[i];
+    total += salaries[i];
+
+    if (salaries[i] > 1000) {
+      // above1000 += 1;
+      above1000++;
+    }
+  }
+
+  return { 
+    total, 
+    average: total / salaries.length, 
+    above1000 
+  };
 }
 
 function handleSalarySubmit(event) {
@@ -60,7 +80,7 @@ function handleSalarySubmit(event) {
   );
 }
 
-function showResult(message, isError = false) {
-  result.textContent = message;
+function showResult(message, isError) {
+  result.innerText = message;
   result.className = isError ? "error" : "";
 }

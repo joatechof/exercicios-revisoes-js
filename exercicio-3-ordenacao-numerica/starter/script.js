@@ -31,7 +31,18 @@ function sortNumbers(numbers, direction = "asc") {
   // TODO 1: validar se direction é "asc" ou "desc".
   // TODO 2: criar uma cópia do array.
   // TODO 3: usar um comparador numérico adequado à direcção.
-  return null;
+
+  if (direction !== "asc" && direction !== "desc") {
+    throw new Error("A direção deve ser 'asc' ou 'desc'");
+  }
+
+  const copy = [...numbers];
+
+  if (direction === "desc") {
+    return copy.sort((a, b) => b - a);
+  }
+
+  return copy.sort((a, b) => a - b);
 }
 
 function handleSortSubmit(event) {
