@@ -15,22 +15,33 @@ analyseButton.addEventListener("click", handleAnalyseClick);
 
 function increasePrices(carList, percentage) {
   // TODO: devolver um novo array com novos objectos e preços aumentados.
-  return null;
+  
+  // valor = 100; valorComMais20Porcento = valor * 1.3
+
+  const multiplier = 1 + percentage / 100;
+
+  return carList.map(item => {
+    return {
+      ...item,
+      price: Math.round(item.price * multiplier),
+    }
+  })
 }
 
 function selectAffordableCars(carList, maximumPrice) {
   // TODO: devolver apenas os carros cujo preço seja <= maximumPrice.
-  return null;
+  return carList.filter(item => item.price <= maximumPrice);
 }
 
 function hasCarBelow(carList, priceLimit) {
   // TODO: responder true se existir pelo menos um carro abaixo do limite.
-  return null;
+  return carList.some(item => item.price < priceLimit);
 }
 
 function areAllCarsBelow(carList, priceLimit) {
   // TODO: responder true se todos os carros estiverem abaixo do limite.
-  return null;
+
+  return carList.every(car => car.price < priceLimit);
 }
 
 function handleAnalyseClick() {

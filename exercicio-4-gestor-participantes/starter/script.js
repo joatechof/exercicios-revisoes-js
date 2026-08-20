@@ -15,7 +15,23 @@ function addParticipant(rawName) {
   // TODO 2: rejeitar o nome vazio.
   // TODO 3: impedir duplicados sem distinguir maiúsculas de minúsculas.
   // TODO 4: adicionar ao array e devolver { value: nome }.
-  return { error: "Completa a função addParticipant()." };
+  const name = rawName.trim();
+
+  if (name === "") {
+    return { error: "Escreve um nome" };
+  }
+
+  const normalizedName = name.toLowerCase();
+  
+  const alreadyExists = participants.some(item => item.toLowerCase() === normalizedName);
+
+  if (alreadyExists) {
+    return { error: "Esse participante já existe" };
+  }
+
+  participants.push(name);
+
+  return { value: name };
 }
 
 function removeParticipant(rawName) {
@@ -23,12 +39,29 @@ function removeParticipant(rawName) {
   // TODO 2: procurar o índice sem distinguir maiúsculas de minúsculas.
   // TODO 3: remover exactamente esse elemento.
   // TODO 4: devolver { value: nomeRemovido }.
-  return { error: "Completa a função removeParticipant()." };
+
+  const name = rawName.trim();
+
+  if (name === "") {
+    return { error: "Escreve um nome a remover" };
+  }
+
+  const normalizedName = name.toLowerCase();
+  
+  const index = participants.findIndex(item => item.toLowerCase() === normalizedName);
+
+  if (index === -1) {
+    return { error: "Participante não encontrado" };
+  }
+
+  const [removedParticipant] = participants.splice(index, 1);
+
+  return { value: removedParticipant };
 }
 
 function handleAddSubmit(event) {
   event.preventDefault();
-  const operation = addParticipant(addName.value);
+  const operation = addParticipant(addName.value); // { error: ..., value: ...}
 
   if (operation.error) {
     showMessage(operation.error, true);
